@@ -71,6 +71,33 @@
     └── collect_100ep.log
 ```
 
+### 2.1 本机归档目录（全部产物集中在一处）
+
+代码、数据、权重、结果统一归档在 `/home/user/act`，仓库本身只是其中的 `github_repo/` 子目录：
+
+```
+/home/user/act/
+├── random_pick/            代码 + 场景（已软链回 OrcaSim/Levels/random_pick，OrcaStudio 可直接加载）
+├── dataset_v2_no_alias/    100 集数据：hdf5/ 原始 + lerobot_pick_v2/ 训练用
+├── act_pick_ur5e_v3/       ACT 400K 权重：025000 … 400000 + last
+├── github_repo/            本仓库
+├── results/                闭环评估 JSON 与完整日志
+├── train_logs/  train/     训练日志、显存/内存看门狗
+└── baselines/              专家回放基线（基建等价性验证）
+```
+
+对应到第 4 节的命令，本机实际取值是：
+
+| 参数 | 本机路径 |
+|---|---|
+| `--dataset.root` | `/home/user/act/dataset_v2_no_alias/lerobot_pick_v2` |
+| `--output_dir` | `/home/user/act/act_pick_ur5e_v3` |
+| `--ckpt` | `/home/user/act/act_pick_ur5e_v3/checkpoints/last/pretrained_model` |
+| 采集 `--output` | `/home/user/act/dataset_v2_no_alias/hdf5/pick.hdf5` |
+
+> 场景目录必须是 OrcaStudio 工程 `Levels/` 下的真实路径或软链，否则编辑器加载不到关卡：
+> `ln -sfn /home/user/act/random_pick /home/user/orca_studio/OrcaSim/OrcaSim/Levels/random_pick`
+
 ---
 
 ## 3. 环境依赖
