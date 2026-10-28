@@ -1,0 +1,397 @@
+{
+  "ckpt": "/home/user/orca_train/act_pick_ur5e_v3/checkpoints/400000/pretrained_model",
+  "episodes": 10,
+  "success_rate": 0.9,
+  "results": [
+    {
+      "episode": 0,
+      "steps": 1420,
+      "seconds": 136.3,
+      "infer_calls": 1420,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.0056,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.021,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.0103,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "episode": 1,
+      "steps": 1907,
+      "seconds": 191.5,
+      "infer_calls": 1907,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.0072,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.025,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.0066,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "episode": 2,
+      "steps": 1847,
+      "seconds": 177.3,
+      "infer_calls": 1847,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.0179,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.0062,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.0099,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "episode": 3,
+      "steps": 1535,
+      "seconds": 159.9,
+      "infer_calls": 1535,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.0136,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.0064,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.0144,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "episode": 4,
+      "steps": 1410,
+      "seconds": 137.4,
+      "infer_calls": 1410,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.0145,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.0103,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.011,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "episode": 5,
+      "steps": 1521,
+      "seconds": 145.6,
+      "infer_calls": 1521,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.011,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.0061,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.0127,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "episode": 6,
+      "steps": 1353,
+      "seconds": 128.4,
+      "infer_calls": 1353,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.0063,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.0122,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.0138,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "episode": 7,
+      "steps": 1885,
+      "seconds": 179.1,
+      "infer_calls": 1885,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.0085,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.0136,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.0138,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    },
+    {
+      "episode": 8,
+      "steps": 3000,
+      "seconds": 286.2,
+      "infer_calls": 3000,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": true,
+      "cubes": {
+        "red": {
+          "place_err": 0.376,
+          "in_place": false,
+          "lifted": false,
+          "final_z": 0.775,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.0466,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.339,
+          "in_place": false,
+          "lifted": false,
+          "final_z": 0.775,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": false
+    },
+    {
+      "episode": 9,
+      "steps": 2718,
+      "seconds": 260.0,
+      "infer_calls": 2718,
+      "black_frames": 0,
+      "jump_actions": 0,
+      "stale_obs": 0,
+      "max_obs_lag": 0,
+      "force_open": 0,
+      "timeout": false,
+      "cubes": {
+        "red": {
+          "place_err": 0.0135,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "yellow": {
+          "place_err": 0.0116,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        },
+        "green": {
+          "place_err": 0.011,
+          "in_place": true,
+          "lifted": true,
+          "final_z": 0.782,
+          "fell": false,
+          "tilt_deg": 0.0
+        }
+      },
+      "success": true
+    }
+  ]
+}

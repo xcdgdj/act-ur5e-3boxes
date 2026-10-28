@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.trae/
+preview/
+hdf5/
+*.log.txt

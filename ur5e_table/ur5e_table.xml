@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="ur5e_table">
+  <!--
+    UR5e 机械臂 + 一张桌子（桌子为纯视觉，不参与物理）。
+
+    - 机械臂：UR5e 六轴 + OnRobot 2FG7 两指平行夹爪（已去掉底部立柱与原来的 SMC 吸盘），
+      带 6 个手臂驱动器 + 1 个夹爪驱动器。底座直接坐在桌面上（base 原点 = 底座安装底面，z = 桌面高度 0.75）。
+    - 夹爪：OnRobot 2FG7 电动平行两指夹爪（官方 MuJoCo 模型，mesh 见 assets/fg7_*.obj）。
+      两个平动指关节 left_slide / right_slide（各行程 19 mm）由 fixed tendon(gripper_tendon) 联动，
+      单个体外驱动器 gripper_act 控制。控制量 ctrl 范围 [0, 0.038]（= 两指行程之和）：
+      0 = 全闭（指垫净开口约 26.8 mm），0.038 = 全开（约 64.8 mm）。
+      夹爪抓取中心见 site "gripper_tcp"，位于两指垫之间、沿进给轴距安装面 0.109+0.028 m。
+    - 夹爪安装：2FG7 本体安装面在本体局部 +y 端，本体沿 -y 伸出、指垫再往 -y；
+      装配时绕腕部 x 轴转 180°，使夹爪 -y（进给轴）对准腕部的 +y（工具轴）。
+    - 姿态：机械臂的“立起/rest”姿态（立柱竖直、手臂在顶部弯折）已经预先乘进各连杆的初始朝向，
+      因此 **qpos 全为 0 时就是立起姿态**（qpos = 6 个手臂关节 + 2 个夹爪指关节）。
+      这样 OrcaStudio 里关节的 initQpos=0 时也直接显示为立起，
+      无需依赖 keyframe（OrcaStudio 的导入器不会把 MJCF 的 keyframe/ref 写进关节的 initQpos）。
+      代价：关节读数的零位不再等于 UR5e 出厂零位（若以后要做 RL/IK，请以本文件的零位为准）。
+    - 桌子：1.00 x 1.00 m，台面高度 0.75 m，用基本几何体（box）拼成。
+      台面（table_top）参与物理碰撞，这样三个小正方体能稳稳放在桌上被抓取；
+      桌腿（table_leg_*）仍是纯视觉（contype/conaffinity = 0）。
+      若想让台面也变成纯视觉，把 table_top 的 contype/conaffinity 改回 0 即可。
+    - 托盘：台面上「右下角放置区」放了一个白色托盘（底板 + 四面挡边，全部参与碰撞），
+      世界坐标中心 (-1.05, 0.05)，内腔 0.35 x 0.17 m、挡边高 25 mm；
+      oracle_collect.py 的三个放置点（PLACE_CENTER + PLACE_OFFSETS）都在内腔里，
+      方块放下后会被挡边圈住、不会滑出托盘。
+      底板顶面比桌面高 7 mm，脚本里的 TRAY_FLOOR_DZ = 0.007 与之一一对应，
+      改底板厚度时两边要一起改。
+    - 机械臂摆位：桌面右边缘（x=-0.47）中点，底座中心距右边缘 0.08 m。
+    - meshdir 必须显式写出，否则 OrcaStudio 的导入器解析不到 .obj 网格路径。
+  -->
+  <compiler angle="radian" meshdir="assets" autolimits="true" />
+  <option integrator="implicitfast" cone="elliptic" impratio="10" />
+  <default>
+    <default class="ur5e">
+      <material specular="0.5" shininess="0.25" />
+      <joint axis="0 1 0" range="-6.28319 6.28319" armature="0.1" />
+      <general gaintype="fixed" biastype="affine" ctrlrange="-6.2831 6.2831" gainprm="2000" biasprm="0 -2000 -400" forcerange="-150 150" />
+      <default class="size3">
+        <default class="size3_limited">
+          <joint range="-3.1415 3.1415" />
+          <general ctrlrange="-3.1415 3.1415" />
+        </default>
+      </default>
+      <default class="size1">
+        <general gainprm="500" biasprm="0 -500 -100" forcerange="-28 28" />
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2" />
+      </default>
+      <default class="collision">
+        <geom type="capsule" group="3" />
+        <default class="eef_collision">
+          <geom type="cylinder" />
+        </default>
+      </default>
+      <site size="0.001" rgba="0.5 0.5 0.5 0.3" group="4" />
+    </default>
+
+    <!-- ===== OnRobot 2FG7 夹爪的默认值（独立 class，避免与 ur5e 的默认值互相污染）===== -->
+    <default class="fg7_visual">
+      <geom type="mesh" contype="0" conaffinity="0" group="2" />
+    </default>
+    <default class="fg7_collision">
+      <geom type="mesh" group="3" />
+    </default>
+    <default class="fg7_pad">
+      <geom type="mesh" group="3" condim="6" friction="10.0 0.2 0.002" solimp="0.98 0.99 0.001" solref="0.001 1" priority="1" />
+    </default>
+
+    <!-- ===== 白色托盘（放置区）的默认值 ===== -->
+    <default class="tray_visual">
+      <geom type="box" contype="0" conaffinity="0" group="2" />
+    </default>
+    <default class="tray_collision">
+      <geom type="box" group="3" friction="1 0.1 0.001" />
+    </default>
+  </default>
+  <asset>
+    <material class="ur5e" name="black" rgba="0.033 0.033 0.033 1" />
+    <material class="ur5e" name="jointgray" rgba="0.278 0.278 0.278 1" />
+    <material class="ur5e" name="linkgray" rgba="0.82 0.82 0.82 1" />
+    <material class="ur5e" name="urblue" rgba="0.49 0.678 0.8 1" />
+    <material class="ur5e" name="wood" rgba="0.55 0.35 0.20 1" />
+    <material class="ur5e" name="wood_dark" rgba="0.33 0.20 0.11 1" />
+    <material class="ur5e" name="tray_white" rgba="0.93 0.93 0.94 1" />
+    <mesh file="base_0.obj" />
+    <mesh file="base_1.obj" />
+    <mesh file="shoulder_0.obj" />
+    <mesh file="shoulder_1.obj" />
+    <mesh file="shoulder_2.obj" />
+    <mesh file="upperarm_0.obj" />
+    <mesh file="upperarm_1.obj" />
+    <mesh file="upperarm_2.obj" />
+    <mesh file="upperarm_3.obj" />
+    <mesh file="forearm_0.obj" />
+    <mesh file="forearm_1.obj" />
+    <mesh file="forearm_2.obj" />
+    <mesh file="forearm_3.obj" />
+    <mesh file="wrist1_0.obj" />
+    <mesh file="wrist1_1.obj" />
+    <mesh file="wrist1_2.obj" />
+    <mesh file="wrist2_0.obj" />
+    <mesh file="wrist2_1.obj" />
+    <mesh file="wrist2_2.obj" />
+    <mesh file="wrist3.obj" />
+
+    <!-- ===== OnRobot 2FG7 素材（单位已是 m，无需 scale）=====
+         注意：这里必须用 .obj。OrcaStudio 的网格导入管线只对 .obj 生成可渲染的网格产物
+         （xxx.obj.azmodel），.stl 不会生成任何渲染产物，导入后夹爪会整块看不见
+         （机械臂本体用 obj 才能显示就是这个原因）。故 fg7_* 已随 .stl 一并提供 .obj 版本。 -->
+    <material class="ur5e" name="fg7_aluminium" rgba="0.72 0.72 0.76 1" metallic="0.7" roughness="0.35" />
+    <material class="ur5e" name="fg7_silicone" rgba="0.06 0.06 0.06 1" />
+    <mesh file="fg7_base.obj" name="fg7_base" />
+    <mesh file="fg7_left_finger_body.obj" name="fg7_left_finger_body" />
+    <mesh file="fg7_left_finger_pad.obj" name="fg7_left_finger_pad" />
+    <mesh file="fg7_right_finger_body.obj" name="fg7_right_finger_body" />
+    <mesh file="fg7_right_finger_pad.obj" name="fg7_right_finger_pad" />
+    <mesh file="fg7_left_pad_coll.obj" name="fg7_left_pad_coll" />
+    <mesh file="fg7_right_pad_coll.obj" name="fg7_right_pad_coll" />
+  </asset>
+  <worldbody>
+    <light name="spotlight" mode="targetbodycom" target="wrist_2_link" pos="0 -1 2" />
+
+    <!-- ===== 桌子 ===== -->
+    <!-- 桌面 1.00 x 1.00 m，台面高度 0.75 m；机械臂直接坐在桌面上；台面参与碰撞，可放方块 -->
+    <body name="table" pos="-0.97 -0.32 0">
+      <!-- 台面：必须「一个纯视觉 geom + 一个碰撞 geom」两份。
+           OrcaStudio 的导入器对带碰撞的 geom 只导出 _col 碰撞体（渲染时隐藏），
+           所以只保留碰撞 geom 的话台面会看不见。 -->
+      <geom name="table_top" type="box" pos="0 0 0.73" size="0.50 0.50 0.02" material="wood" contype="0" conaffinity="0" group="2" />
+      <geom name="table_top_collision" type="box" pos="0 0 0.73" size="0.50 0.50 0.02" friction="1 0.1 0.001" group="3" />
+      <geom name="table_leg_1" type="box" pos="-0.45 -0.45 0.355" size="0.03 0.03 0.355" material="wood_dark" contype="0" conaffinity="0" group="2" />
+      <geom name="table_leg_2" type="box" pos="-0.45  0.45 0.355" size="0.03 0.03 0.355" material="wood_dark" contype="0" conaffinity="0" group="2" />
+      <geom name="table_leg_3" type="box" pos=" 0.45 -0.45 0.355" size="0.03 0.03 0.355" material="wood_dark" contype="0" conaffinity="0" group="2" />
+      <geom name="table_leg_4" type="box" pos=" 0.45  0.45 0.355" size="0.03 0.03 0.355" material="wood_dark" contype="0" conaffinity="0" group="2" />
+
+      <!-- ===== 白色托盘（抓取后的固定放置区）=====
+           世界坐标中心 (-1.05, 0.05) = 桌子局部 (-0.08, 0.37)；
+           外廓 0.374 x 0.194 m，内腔 0.35 x 0.17 m，挡边高 25 mm。
+           内腔留得比放置点大不少，是因为 2FG7 张开到底时两指在开合方向各外伸 67 mm，
+           必须保证「放置点到内壁 ≥ 85 mm」手指才不会顶到挡边。
+           三个放置点（oracle_collect.py 的 PLACE_CENTER + PLACE_OFFSETS，
+           x = -1.14 / -1.05 / -0.96，y = 0.05）都在内腔里，方块放下后不会滑出托盘。
+           底板顶面 z = 0.757（表面对齐脚本里的 CUBE_Z + TRAY_FLOOR_DZ）。
+           和其它 geom 一样，每个部件都拆成「纯视觉 + 碰撞」两份。 -->
+      <geom name="tray_floor" class="tray_visual" material="tray_white"
+            pos="-0.08 0.37 0.754" size="0.187 0.097 0.003" />
+      <geom name="tray_floor_collision" class="tray_collision"
+            pos="-0.08 0.37 0.754" size="0.187 0.097 0.003" />
+      <geom name="tray_wall_xp" class="tray_visual" material="tray_white"
+            pos="0.101 0.37 0.7695" size="0.006 0.097 0.0125" />
+      <geom name="tray_wall_xp_collision" class="tray_collision"
+            pos="0.101 0.37 0.7695" size="0.006 0.097 0.0125" />
+      <geom name="tray_wall_xn" class="tray_visual" material="tray_white"
+            pos="-0.261 0.37 0.7695" size="0.006 0.097 0.0125" />
+      <geom name="tray_wall_xn_collision" class="tray_collision"
+            pos="-0.261 0.37 0.7695" size="0.006 0.097 0.0125" />
+      <geom name="tray_wall_yp" class="tray_visual" material="tray_white"
+            pos="-0.08 0.461 0.7695" size="0.187 0.006 0.0125" />
+      <geom name="tray_wall_yp_collision" class="tray_collision"
+            pos="-0.08 0.461 0.7695" size="0.187 0.006 0.0125" />
+      <geom name="tray_wall_yn" class="tray_visual" material="tray_white"
+            pos="-0.08 0.279 0.7695" size="0.187 0.006 0.0125" />
+      <geom name="tray_wall_yn_collision" class="tray_collision"
+            pos="-0.08 0.279 0.7695" size="0.187 0.006 0.0125" />
+    </body>
+
+    <!-- ===== UR5e 机械臂（末端为 OnRobot 2FG7 夹爪，直接坐在桌面上，无立柱）===== -->
+    <!-- 桌面右边缘 x=-0.47、中点 y=-0.32；底座中心 x=-0.55 => 距右边缘 0.08 m，y 居右边缘中点 -->
+    <body name="base" pos="-0.55 -0.32 0.75" quat="0 0 0 -1" childclass="ur5e">
+      <inertial mass="4.0" pos="0 0 0" diaginertia="0.00443333156 0.00443333156 0.0072" />
+      <geom mesh="base_0" material="black" class="visual" />
+      <geom mesh="base_1" material="jointgray" class="visual" />
+      <body name="shoulder_link" pos="0 0 0.163" quat="0.70710678 0 0 -0.70710678">
+        <inertial mass="3.7" pos="0 0 0" diaginertia="0.0102675 0.0102675 0.00666" />
+        <joint name="shoulder_pan_joint" class="size3" axis="0 0 1" />
+        <geom mesh="shoulder_0" material="urblue" class="visual" />
+        <geom mesh="shoulder_1" material="black" class="visual" />
+        <geom mesh="shoulder_2" material="jointgray" class="visual" />
+        <geom class="collision" size="0.06 0.06" pos="0 0 -0.04" />
+        <body name="upper_arm_link" pos="0 0.138 0" quat="1 0 0 0">
+          <inertial mass="8.393" pos="0 0 0.2125" diaginertia="0.133886 0.133886 0.0151074" />
+          <joint name="shoulder_lift_joint" class="size3" />
+          <geom mesh="upperarm_0" material="linkgray" class="visual" />
+          <geom mesh="upperarm_1" material="black" class="visual" />
+          <geom mesh="upperarm_2" material="jointgray" class="visual" />
+          <geom mesh="upperarm_3" material="urblue" class="visual" />
+          <geom class="collision" pos="0 -0.04 0" quat="1 1 0 0" size="0.06 0.06" />
+          <geom class="collision" size="0.05 0.2" pos="0 0 0.2" />
+          <body name="forearm_link" pos="0 -0.131 0.425" quat="0.70710678 0 0.70710678 0">
+            <inertial mass="2.275" pos="0 0 0.196" diaginertia="0.0311796 0.0311796 0.004095" />
+            <joint name="elbow_joint" class="size3_limited" />
+            <geom mesh="forearm_0" material="urblue" class="visual" />
+            <geom mesh="forearm_1" material="linkgray" class="visual" />
+            <geom mesh="forearm_2" material="black" class="visual" />
+            <geom mesh="forearm_3" material="jointgray" class="visual" />
+            <geom class="collision" pos="0 0.08 0" quat="1 1 0 0" size="0.055 0.06" />
+            <geom class="collision" size="0.038 0.19" pos="0 0 0.2" />
+            <body name="wrist_1_link" pos="0 0 0.392" quat="1 0 0 0">
+              <inertial mass="1.219" pos="0 0.127 0" diaginertia="0.0025599 0.0025599 0.0021942" />
+              <joint name="wrist_1_joint" class="size1" />
+              <geom mesh="wrist1_0" material="black" class="visual" />
+              <geom mesh="wrist1_1" material="urblue" class="visual" />
+              <geom mesh="wrist1_2" material="jointgray" class="visual" />
+              <geom class="collision" pos="0 0.05 0" quat="1 1 0 0" size="0.04 0.07" />
+              <body name="wrist_2_link" pos="0 0.127 0" quat="0.70710678 0 0 -0.70710678">
+                <inertial mass="1.219" pos="0 0 0.1" diaginertia="0.0025599 0.0025599 0.0021942" />
+                <joint name="wrist_2_joint" axis="0 0 1" class="size1" />
+                <geom mesh="wrist2_0" material="black" class="visual" />
+                <geom mesh="wrist2_1" material="urblue" class="visual" />
+                <geom mesh="wrist2_2" material="jointgray" class="visual" />
+                <geom class="collision" size="0.04 0.06" pos="0 0 0.04" />
+                <geom class="collision" pos="0 0.02 0.1" quat="1 1 0 0" size="0.04 0.04" />
+                <body name="wrist_3_link" pos="0 0 0.1">
+                  <inertial mass="0.1889" pos="0 0.0771683 0" quat="1 0 0 1" diaginertia="0.000132134 9.90863e-05 9.90863e-05" />
+                  <joint name="wrist_3_joint" class="size1" />
+                  <geom material="linkgray" mesh="wrist3" class="visual" />
+                  <geom class="eef_collision" pos="0 0.08 0" quat="1 1 0 0" size="0.04 0.02" />
+                  <site name="attachment_site" pos="0 0.1 0" quat="-1 1 0 0" />
+                  <!-- ===== OnRobot 2FG7 两指平行夹爪 ===== -->
+                  <!-- 装到腕部法兰上：绕 x 转 180°，让夹爪自身 -y（进给轴）对准腕部的 +y（工具轴）。
+                       本体安装面在本体局部 +y = 0.1094 m 端，故 pos.y = 0.1094，使安装面与法兰面（腕部 y=0.1）对齐。 -->
+                  <body name="gripper_base" pos="0 0.2094 0" quat="0 1 0 0">
+                    <inertial pos="0 0.05 0" mass="0.95" diaginertia="0.002 0.002 0.002" />
+                    <geom class="fg7_visual" mesh="fg7_base" material="fg7_aluminium" />
+                    <geom class="fg7_collision" mesh="fg7_base" />
+                    <site name="gripper_tcp" pos="0 -0.028 0" euler="1.5708 0 0" size="0.008" rgba="1 0 0 1" group="5" />
+                    <!-- 左指：沿 -x 进给（axis -1 0 0），行程 19 mm -->
+                    <body name="left_finger" pos="0.0125 0 0">
+                      <inertial pos="0 0 0" mass="0.075" diaginertia="2e-5 2e-5 2e-5" />
+                      <joint name="left_slide" type="slide" axis="-1 0 0" range="0 0.019" damping="5" frictionloss="0.2" />
+                      <geom class="fg7_visual" mesh="fg7_left_finger_body" material="fg7_aluminium" />
+                      <geom class="fg7_visual" mesh="fg7_left_finger_pad" material="fg7_silicone" />
+                      <geom class="fg7_pad" mesh="fg7_left_pad_coll" />
+                    </body>
+                    <!-- 右指：沿 +x 进给（axis 1 0 0），行程 19 mm -->
+                    <body name="right_finger" pos="-0.0125 0 0">
+                      <inertial pos="0 0 0" mass="0.075" diaginertia="2e-5 2e-5 2e-5" />
+                      <joint name="right_slide" type="slide" axis="1 0 0" range="0 0.019" damping="5" frictionloss="0.2" />
+                      <geom class="fg7_visual" mesh="fg7_right_finger_body" material="fg7_aluminium" />
+                      <geom class="fg7_visual" mesh="fg7_right_finger_pad" material="fg7_silicone" />
+                      <geom class="fg7_pad" mesh="fg7_right_pad_coll" />
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <!-- ===== OnRobot 2FG7 接触排除：本体与两指不互相碰撞 ===== -->
+  <contact>
+    <exclude body1="gripper_base" body2="left_finger" />
+    <exclude body1="gripper_base" body2="right_finger" />
+  </contact>
+
+  <!-- 用 fixed tendon 把两指的平动关节联成一个自由度（同步开合） -->
+  <tendon>
+    <fixed name="gripper_tendon">
+      <joint joint="left_slide" coef="1" />
+      <joint joint="right_slide" coef="1" />
+    </fixed>
+  </tendon>
+
+  <actuator>
+    <general class="size3" name="shoulder_pan" joint="shoulder_pan_joint" />
+    <general class="size3" name="shoulder_lift" joint="shoulder_lift_joint" />
+    <general class="size3_limited" name="elbow" joint="elbow_joint" />
+    <general class="size1" name="wrist_1" joint="wrist_1_joint" />
+    <general class="size1" name="wrist_2" joint="wrist_2_joint" />
+    <general class="size1" name="wrist_3" joint="wrist_3_joint" />
+    <!-- 夹爪：ctrl 0 = 全闭（指垫净开口约 26.8 mm），0.038 = 全开（约 64.8 mm） -->
+    <position name="gripper_act" tendon="gripper_tendon" kp="2000" ctrlrange="0 0.038" forcerange="-60 60" />
+  </actuator>
+  <keyframe>
+    <!-- home = 立起姿态（此时 qpos 全为 0，见文件头说明）；qpos = 6 手臂关节 + 2 指关节 -->
+    <key name="home" qpos="0 0 0 0 0 0 0 0" />
+  </keyframe>
+</mujoco>

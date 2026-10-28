@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="cubes">
+  <!--
+    三个 50 mm 小正方体（红/黄/绿），写在同一份 XML 里。
+
+    - 边长 50 mm（half size 0.025 m），质量 75 g，带 <freejoint>，可自由落体、被夹爪夹取。
+      OnRobot 2FG7 开口 26.8~64.8 mm，50 mm 方块在开合范围内，可以稳定夹住。
+    - 每个方块都是「一个视觉 geom + 一个碰撞 geom」两份：
+        OrcaStudio 的导入器对带碰撞的 geom 只导出 _col（purpose="guide"，渲染时隐藏），
+        所以只写碰撞 geom 的话方块会看不见，必须再补一个 contype=0 的纯视觉 geom。
+    - 质量由 <inertial> 显式给出，避免多出来的视觉 geom 重复计质量。
+    - 三个方块初始位置聚在桌面同一小片区域里，落稳后彼此挨得较近。
+    - 只定义方块本身；导入到已有「桌子 + UR5e」的场景即可（不要重复导入桌子）。
+    - 运行时可以用 randomize_cubes.py 连接仿真，把这几个 freejoint 随机重新摆位。
+  -->
+  <compiler angle="radian" autolimits="true" />
+  <option integrator="implicitfast" />
+  <default>
+    <!-- 三个方块参数完全一致：friction / solref / solimp 与 OrcaStudio 里红方块的实测值对齐 -->
+    <geom condim="6" friction="1.0 0.6 0.01" solref="0.001 1" solimp="0.98 0.99 0.001" />
+  </default>
+  <asset>
+    <material name="cube_red_mat" rgba="0.85 0.10 0.10 1" />
+    <material name="cube_yellow_mat" rgba="0.92 0.80 0.10 1" />
+    <material name="cube_green_mat" rgba="0.10 0.70 0.20 1" />
+  </asset>
+  <worldbody>
+    <body name="cube_red" pos="-1.02 -0.24 0.78">
+      <freejoint name="cube_red_free" />
+      <inertial pos="0 0 0" mass="0.075" diaginertia="5.2083e-05 5.2083e-05 5.2083e-05" />
+      <geom name="cube_red_vis" type="box" size="0.025 0.025 0.025" material="cube_red_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="cube_red_geom" type="box" size="0.025 0.025 0.025" group="3" />
+    </body>
+    <body name="cube_yellow" pos="-0.94 -0.40 0.78">
+      <freejoint name="cube_yellow_free" />
+      <inertial pos="0 0 0" mass="0.075" diaginertia="5.2083e-05 5.2083e-05 5.2083e-05" />
+      <geom name="cube_yellow_vis" type="box" size="0.025 0.025 0.025" material="cube_yellow_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="cube_yellow_geom" type="box" size="0.025 0.025 0.025" group="3" />
+    </body>
+    <body name="cube_green" pos="-0.86 -0.26 0.78">
+      <freejoint name="cube_green_free" />
+      <inertial pos="0 0 0" mass="0.075" diaginertia="5.2083e-05 5.2083e-05 5.2083e-05" />
+      <geom name="cube_green_vis" type="box" size="0.025 0.025 0.025" material="cube_green_mat" contype="0" conaffinity="0" group="2" />
+      <geom name="cube_green_geom" type="box" size="0.025 0.025 0.025" group="3" />
+    </body>
+  </worldbody>
+</mujoco>

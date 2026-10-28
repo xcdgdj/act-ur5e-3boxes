@@ -1,0 +1,17 @@
+# 采集 / 闭环评估环境（conda env: orcalab_gpu）
+torch==2.7.1
+lerobot==0.3.4
+mujoco==3.12.0
+numpy==2.2.6
+scipy==1.16.2
+h5py==3.16.0
+grpcio==1.66.1
+av==17.0.1
+draccus
+pandas
+pyarrow
+
+# orca_gym 随 OrcaStudio 分发，不在 PyPI，需要按编辑器版本单独安装
+
+# 数据集转换环境（conda env: orcalab_lerobot）额外只需要
+# lerobot==0.3.4 + pyav + torch

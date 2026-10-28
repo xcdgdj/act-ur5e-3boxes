@@ -1,0 +1,881 @@
+[2026-10-27 10:22:26.550] [33mWARNING    [0m | __init__             | /home/user/miniconda3/envs/orcalab_gpu/lib/python3.12/site-packages/orca_gym/environment/orca_gym_local_env.py:112  | Anchor body ORCA_MANIPULATOR_a3f5e2d1-7b8c-4f2a-9e6d-1c2b3a4f5d6e_Anchor not found in the model. Actor manipulation is disabled.
+/home/user/miniconda3/envs/orcalab_gpu/lib/python3.12/site-packages/gymnasium/spaces/box.py:226: RuntimeWarning: overflow encountered in cast
+  elif low.dtype != self.dtype and np.any(low < dtype_min):
+/home/user/miniconda3/envs/orcalab_gpu/lib/python3.12/site-packages/gymnasium/spaces/box.py:296: RuntimeWarning: overflow encountered in cast
+  elif high.dtype != self.dtype and np.any(dtype_max < high):
+/home/user/miniconda3/envs/orcalab_gpu/lib/python3.12/site-packages/gymnasium/spaces/box.py:236: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
+  gym.logger.warn(
+/home/user/miniconda3/envs/orcalab_gpu/lib/python3.12/site-packages/gymnasium/spaces/box.py:306: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
+  gym.logger.warn(
+[gripper] kp=2000 N/m  forcerange=±60 N  过盈量=0.0050 m
+[2026-10-27 10:22:26.566] [33mWARNING    [0m | _receive_loop        | /home/user/miniconda3/envs/orcalab_gpu/lib/python3.12/site-packages/orca_gym/recorder/camera_recorder.py:802  | [Recorder:camera_float] WebSocket connect attempt 1/3 failed: [Errno 111] Connect call failed ('127.0.0.1', 7070), retrying in 1.0s...
+[2026-10-27 10:22:27.659] [33mWARNING    [0m | _receive_loop        | /home/user/miniconda3/envs/orcalab_gpu/lib/python3.12/site-packages/orca_gym/recorder/camera_recorder.py:802  | [Recorder:gripper_camera] WebSocket connect attempt 1/3 failed: [Errno 111] Connect call failed ('127.0.0.1', 7071), retrying in 1.0s...
+[cam] 已接上 ['camera_top', 'camera_wrist']（camera_top=camera_float:port7070, camera_wrist=gripper_camera:port7071）
+[cam] 等待首帧超时（20s）；已连接但首帧未到，主循环会继续驱动
+[批量] 目标成功 100 条，最多尝试 500 次；失败集默认丢弃并换随机摆位重试
+
+[第 1 次尝试] [------------------------] 成功 0/100  丢弃 0  成功率 0.0%  均 0.0s/集  已用 0m00s  剩余约 0m00s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.381]  误差 0.0100 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.025 -27.382]  误差 0.0107 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.386]  误差 0.0146 m  倾角 0.0°  OK
+[cam] 本集 1333 帧，hold-last 补帧 2（0.08%）  camera_top[camera_float] 累计收1332 过晚丢弃1 本集补帧1; camera_wrist[gripper_camera] 累计收1332 过晚丢弃1 本集补帧1
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0000.hdf5 写入 1333 帧  success=True
+[------------------------] 成功 1/100  丢弃 0  成功率 100.0%  均 28.7s/集  已用 0m28s  剩余约 47m24s
+
+[第 2 次尝试] [------------------------] 成功 1/100  丢弃 0  成功率 100.0%  均 28.7s/集  已用 0m28s  剩余约 47m24s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.377]  误差 0.0072 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.381]  误差 0.0129 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.937 -27.386]  误差 0.0131 m  倾角 0.0°  OK
+[cam] 本集 1370 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收2702 过晚丢弃1 本集补帧0; camera_wrist[gripper_camera] 累计收2702 过晚丢弃1 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0001.hdf5 写入 1370 帧  success=True
+[------------------------] 成功 2/100  丢弃 0  成功率 100.0%  均 29.2s/集  已用 0m58s  剩余约 47m39s
+
+[第 3 次尝试] [------------------------] 成功 2/100  丢弃 0  成功率 100.0%  均 29.2s/集  已用 0m58s  剩余约 47m39s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.381]  误差 0.0106 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.045 m（方向 306°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.024 -27.382]  误差 0.0109 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.387]  误差 0.0148 m  倾角 0.0°  OK
+[cam] 本集 1515 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收4217 过晚丢弃1 本集补帧0; camera_wrist[gripper_camera] 累计收4217 过晚丢弃1 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0002.hdf5 写入 1515 帧  success=True
+[#-----------------------] 成功 3/100  丢弃 0  成功率 100.0%  均 30.3s/集  已用 1m31s  剩余约 49m02s
+
+[第 4 次尝试] [#-----------------------] 成功 3/100  丢弃 0  成功率 100.0%  均 30.3s/集  已用 1m31s  剩余约 49m02s
+  [noise] red 注入抓偏 0.039 m（方向 358°）
+  [rescue] red 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.383]  误差 0.0126 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.017 -27.386]  误差 0.0180 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.383]  误差 0.0119 m  倾角 0.0°  OK
+[cam] 本集 1575 帧，hold-last 补帧 2（0.06%）  camera_top[camera_float] 累计收5791 过晚丢弃2 本集补帧1; camera_wrist[gripper_camera] 累计收5791 过晚丢弃2 本集补帧1
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0003.hdf5 写入 1575 帧  success=True
+[#-----------------------] 成功 4/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 2m04s  剩余约 49m58s
+
+[第 5 次尝试] [#-----------------------] 成功 4/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 2m04s  剩余约 49m58s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.107 -27.382]  误差 0.0150 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.047 m（方向 91°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.379]  误差 0.0106 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.387]  误差 0.0146 m  倾角 0.0°  OK
+[cam] 本集 1515 帧，hold-last 补帧 14（0.46%）  camera_top[camera_float] 累计收7299 过晚丢弃9 本集补帧7; camera_wrist[gripper_camera] 累计收7299 过晚丢弃9 本集补帧7
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0004.hdf5 写入 1515 帧  success=True
+[#-----------------------] 成功 5/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 2m37s  剩余约 49m55s
+
+[第 6 次尝试] [#-----------------------] 成功 5/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 2m37s  剩余约 49m55s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.38 ]  误差 0.0096 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.387]  误差 0.0166 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.391]  误差 0.0202 m  倾角 0.0°  OK
+[cam] 本集 1398 帧，hold-last 补帧 12（0.43%）  camera_top[camera_float] 累计收8691 过晚丢弃15 本集补帧6; camera_wrist[gripper_camera] 累计收8691 过晚丢弃15 本集补帧6
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0005.hdf5 写入 1398 帧  success=True
+[#-----------------------] 成功 6/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 3m07s  剩余约 49m02s
+
+[第 7 次尝试] [#-----------------------] 成功 6/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 3m07s  剩余约 49m02s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.38 ]  误差 0.0121 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.038 m（方向 60°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.378]  误差 0.0108 m  倾角 0.0°  OK
+  [noise] green 注入抓偏 0.033 m（方向 338°）
+  [rescue] green 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.936 -27.377]  误差 0.0058 m  倾角 0.0°  OK
+[cam] 本集 1622 帧，hold-last 补帧 16（0.49%）  camera_top[camera_float] 累计收10305 过晚丢弃23 本集补帧8; camera_wrist[gripper_camera] 累计收10305 过晚丢弃23 本集补帧8
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0006.hdf5 写入 1622 帧  success=True
+[##----------------------] 成功 7/100  丢弃 0  成功率 100.0%  均 31.8s/集  已用 3m42s  剩余约 49m20s
+
+[第 8 次尝试] [##----------------------] 成功 7/100  丢弃 0  成功率 100.0%  均 31.8s/集  已用 3m42s  剩余约 49m20s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.378]  误差 0.0117 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.016 -27.386]  误差 0.0182 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.388]  误差 0.0179 m  倾角 0.0°  OK
+[cam] 本集 1481 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收11786 过晚丢弃23 本集补帧0; camera_wrist[gripper_camera] 累计收11786 过晚丢弃23 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0007.hdf5 写入 1481 帧  success=True
+[##----------------------] 成功 8/100  丢弃 0  成功率 100.0%  均 31.8s/集  已用 4m14s  剩余约 48m48s
+
+[第 9 次尝试] [##----------------------] 成功 8/100  丢弃 0  成功率 100.0%  均 31.8s/集  已用 4m14s  剩余约 48m48s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.379]  误差 0.0114 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.018 -27.386]  误差 0.0170 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.929 -27.386]  误差 0.0165 m  倾角 0.0°  OK
+[cam] 本集 1410 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收13196 过晚丢弃23 本集补帧0; camera_wrist[gripper_camera] 累计收13196 过晚丢弃23 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0008.hdf5 写入 1410 帧  success=True
+[##----------------------] 成功 9/100  丢弃 0  成功率 100.0%  均 31.7s/集  已用 4m45s  剩余约 48m02s
+
+[第 10 次尝试] [##----------------------] 成功 9/100  丢弃 0  成功率 100.0%  均 31.7s/集  已用 4m45s  剩余约 48m02s
+  [noise] red 注入抓偏 0.049 m（方向 279°）
+  [rescue] red 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.383]  误差 0.0134 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.386]  误差 0.0140 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.387]  误差 0.0150 m  倾角 0.0°  OK
+[cam] 本集 1570 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收14766 过晚丢弃23 本集补帧0; camera_wrist[gripper_camera] 累计收14766 过晚丢弃23 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0009.hdf5 写入 1570 帧  success=True
+[##----------------------] 成功 10/100  丢弃 0  成功率 100.0%  均 31.9s/集  已用 5m18s  剩余约 47m50s
+
+[第 11 次尝试] [##----------------------] 成功 10/100  丢弃 0  成功率 100.0%  均 31.9s/集  已用 5m18s  剩余约 47m50s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.388]  误差 0.0177 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.384]  误差 0.0148 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.389]  误差 0.0177 m  倾角 0.0°  OK
+[cam] 本集 1438 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收16204 过晚丢弃23 本集补帧0; camera_wrist[gripper_camera] 累计收16204 过晚丢弃23 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0010.hdf5 写入 1438 帧  success=True
+[###---------------------] 成功 11/100  丢弃 0  成功率 100.0%  均 31.8s/集  已用 5m49s  剩余约 47m11s
+
+[第 12 次尝试] [###---------------------] 成功 11/100  丢弃 0  成功率 100.0%  均 31.8s/集  已用 5m49s  剩余约 47m11s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.378]  误差 0.0112 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.024 -27.391]  误差 0.0187 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.391]  误差 0.0204 m  倾角 0.0°  OK
+[cam] 本集 1447 帧，hold-last 补帧 2（0.07%）  camera_top[camera_float] 累计收17650 过晚丢弃24 本集补帧1; camera_wrist[gripper_camera] 累计收17650 过晚丢弃24 本集补帧1
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0011.hdf5 写入 1447 帧  success=True
+[###---------------------] 成功 12/100  丢弃 0  成功率 100.0%  均 31.8s/集  已用 6m21s  剩余约 46m35s
+
+[第 13 次尝试] [###---------------------] 成功 12/100  丢弃 0  成功率 100.0%  均 31.8s/集  已用 6m21s  剩余约 46m35s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.114 -27.378]  误差 0.0075 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.386]  误差 0.0153 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.379]  误差 0.0081 m  倾角 0.0°  OK
+[cam] 本集 1380 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收19030 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收19030 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0012.hdf5 写入 1380 帧  success=True
+[###---------------------] 成功 13/100  丢弃 0  成功率 100.0%  均 31.6s/集  已用 6m50s  剩余约 45m50s
+
+[第 14 次尝试] [###---------------------] 成功 13/100  丢弃 0  成功率 100.0%  均 31.6s/集  已用 6m50s  剩余约 45m50s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.377]  误差 0.0107 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.385]  误差 0.0150 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.384]  误差 0.0124 m  倾角 0.0°  OK
+[cam] 本集 1467 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收20497 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收20497 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0013.hdf5 写入 1467 帧  success=True
+[###---------------------] 成功 14/100  丢弃 0  成功率 100.0%  均 31.6s/集  已用 7m22s  剩余约 45m19s
+
+[第 15 次尝试] [###---------------------] 成功 14/100  丢弃 0  成功率 100.0%  均 31.6s/集  已用 7m22s  剩余约 45m19s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.106 -27.384]  误差 0.0169 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.388]  误差 0.0177 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.385]  误差 0.0152 m  倾角 0.0°  OK
+[cam] 本集 1382 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收21879 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收21879 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0014.hdf5 写入 1382 帧  success=True
+[####--------------------] 成功 15/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 7m52s  剩余约 44m37s
+
+[第 16 次尝试] [####--------------------] 成功 15/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 7m52s  剩余约 44m37s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.379]  误差 0.0116 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.384]  误差 0.0155 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.388]  误差 0.0178 m  倾角 0.0°  OK
+[cam] 本集 1397 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收23276 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收23276 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0015.hdf5 写入 1397 帧  success=True
+[####--------------------] 成功 16/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 8m22s  剩余约 43m58s
+
+[第 17 次尝试] [####--------------------] 成功 16/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 8m22s  剩余约 43m58s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.382]  误差 0.0129 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.018 -27.387]  误差 0.0175 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.387]  误差 0.0162 m  倾角 0.0°  OK
+[cam] 本集 1482 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收24758 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收24758 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0016.hdf5 写入 1482 帧  success=True
+[####--------------------] 成功 17/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 8m54s  剩余约 43m30s
+
+[第 18 次尝试] [####--------------------] 成功 17/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 8m54s  剩余约 43m30s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.107 -27.381]  误差 0.0147 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.383]  误差 0.0135 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.388]  误差 0.0176 m  倾角 0.0°  OK
+[cam] 本集 1432 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收26190 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收26190 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0017.hdf5 写入 1432 帧  success=True
+[####--------------------] 成功 18/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 9m25s  剩余约 42m56s
+
+[第 19 次尝试] [####--------------------] 成功 18/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 9m25s  剩余约 42m56s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.104 -27.38 ]  误差 0.0168 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.385]  误差 0.0144 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.385]  误差 0.0149 m  倾角 0.0°  OK
+[cam] 本集 1341 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收27531 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收27531 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0018.hdf5 写入 1341 帧  success=True
+[#####-------------------] 成功 19/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 9m54s  剩余约 42m14s
+
+[第 20 次尝试] [#####-------------------] 成功 19/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 9m54s  剩余约 42m14s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.384]  误差 0.0147 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.381]  误差 0.0129 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.376]  误差 0.0087 m  倾角 0.0°  OK
+[cam] 本集 1394 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收28925 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收28925 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0019.hdf5 写入 1394 帧  success=True
+[#####-------------------] 成功 20/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 10m24s  剩余约 41m38s
+
+[第 21 次尝试] [#####-------------------] 成功 20/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 10m24s  剩余约 41m38s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.381]  误差 0.0106 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.037 m（方向 315°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.383]  误差 0.0131 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.383]  误差 0.0118 m  倾角 0.0°  OK
+[cam] 本集 1525 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收30450 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收30450 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0020.hdf5 写入 1525 帧  success=True
+[#####-------------------] 成功 21/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 10m57s  剩余约 41m13s
+
+[第 22 次尝试] [#####-------------------] 成功 21/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 10m57s  剩余约 41m13s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.382]  误差 0.0134 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.385]  误差 0.0155 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.388]  误差 0.0166 m  倾角 0.0°  OK
+[cam] 本集 1435 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收31885 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收31885 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0021.hdf5 写入 1435 帧  success=True
+[#####-------------------] 成功 22/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 11m28s  剩余约 40m40s
+
+[第 23 次尝试] [#####-------------------] 成功 22/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 11m28s  剩余约 40m40s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.378]  误差 0.0116 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.383]  误差 0.0129 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.386]  误差 0.0149 m  倾角 0.0°  OK
+[cam] 本集 1402 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收33287 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收33287 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0022.hdf5 写入 1402 帧  success=True
+[######------------------] 成功 23/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 11m58s  剩余约 40m05s
+
+[第 24 次尝试] [######------------------] 成功 23/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 11m58s  剩余约 40m05s
+  [noise] red 注入抓偏 0.032 m（方向 167°）
+  [rescue] red 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.382]  误差 0.0129 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.017 -27.386]  误差 0.0180 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.386]  误差 0.0139 m  倾角 0.0°  OK
+[cam] 本集 1844 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收35131 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收35131 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0023.hdf5 写入 1844 帧  success=True
+[######------------------] 成功 24/100  丢弃 0  成功率 100.0%  均 31.6s/集  已用 12m38s  剩余约 40m00s
+
+[第 25 次尝试] [######------------------] 成功 24/100  丢弃 0  成功率 100.0%  均 31.6s/集  已用 12m38s  剩余约 40m00s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.381]  误差 0.0104 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.025 -27.384]  误差 0.0119 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.387]  误差 0.0156 m  倾角 0.0°  OK
+[cam] 本集 1374 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收36505 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收36505 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0024.hdf5 写入 1374 帧  success=True
+[######------------------] 成功 25/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 13m07s  剩余约 39m23s
+
+[第 26 次尝试] [######------------------] 成功 25/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 13m07s  剩余约 39m23s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.379]  误差 0.0097 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.045 m（方向 92°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.378]  误差 0.0095 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.377]  误差 0.0063 m  倾角 0.0°  OK
+[cam] 本集 1474 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收37979 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收37979 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0025.hdf5 写入 1474 帧  success=True
+[######------------------] 成功 26/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 13m39s  剩余约 38m52s
+
+[第 27 次尝试] [######------------------] 成功 26/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 13m39s  剩余约 38m52s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.379]  误差 0.0113 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.015 -27.385]  误差 0.0188 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.384]  误差 0.0124 m  倾角 0.0°  OK
+[cam] 本集 1405 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收39384 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收39384 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0026.hdf5 写入 1405 帧  success=True
+[######------------------] 成功 27/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 14m09s  剩余约 38m17s
+
+[第 28 次尝试] [######------------------] 成功 27/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 14m09s  剩余约 38m17s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.379]  误差 0.0114 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.382]  误差 0.0138 m  倾角 0.0°  OK
+  [noise] green 注入抓偏 0.043 m（方向 319°）
+  [rescue] green 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.382]  误差 0.0124 m  倾角 0.0°  OK
+[cam] 本集 1503 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收40887 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收40887 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0027.hdf5 写入 1503 帧  success=True
+[#######-----------------] 成功 28/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 14m42s  剩余约 37m48s
+
+[第 29 次尝试] [#######-----------------] 成功 28/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 14m42s  剩余约 37m48s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.377]  误差 0.0096 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.383]  误差 0.0127 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.386]  误差 0.0153 m  倾角 0.0°  OK
+[cam] 本集 1402 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收42289 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收42289 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0028.hdf5 写入 1402 帧  success=True
+[#######-----------------] 成功 29/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 15m12s  剩余约 37m14s
+
+[第 30 次尝试] [#######-----------------] 成功 29/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 15m12s  剩余约 37m14s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.375]  误差 0.0096 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.042 m（方向 354°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.378]  误差 0.0085 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.385]  误差 0.0152 m  倾角 0.0°  OK
+[cam] 本集 1533 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收43822 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收43822 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0029.hdf5 写入 1533 帧  success=True
+[#######-----------------] 成功 30/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 15m45s  剩余约 36m46s
+
+[第 31 次尝试] [#######-----------------] 成功 30/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 15m45s  剩余约 36m46s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.386]  误差 0.0150 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.384]  误差 0.0144 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.387]  误差 0.0164 m  倾角 0.0°  OK
+[cam] 本集 1394 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收45216 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收45216 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0030.hdf5 写入 1394 帧  success=True
+[#######-----------------] 成功 31/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 16m15s  剩余约 36m11s
+
+[第 32 次尝试] [#######-----------------] 成功 31/100  丢弃 0  成功率 100.0%  均 31.5s/集  已用 16m15s  剩余约 36m11s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.378]  误差 0.0113 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.384]  误差 0.0133 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.383]  误差 0.0132 m  倾角 0.0°  OK
+[cam] 本集 1427 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收46643 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收46643 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0031.hdf5 写入 1427 帧  success=True
+[########----------------] 成功 32/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 16m46s  剩余约 35m38s
+
+[第 33 次尝试] [########----------------] 成功 32/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 16m46s  剩余约 35m38s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.382]  误差 0.0140 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.383]  误差 0.0127 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.384]  误差 0.0132 m  倾角 0.0°  OK
+[cam] 本集 1371 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收48014 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收48014 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0032.hdf5 写入 1371 帧  success=True
+[########----------------] 成功 33/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 17m15s  剩余约 35m03s
+
+[第 34 次尝试] [########----------------] 成功 33/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 17m15s  剩余约 35m03s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.378]  误差 0.0080 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.386]  误差 0.0166 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.373]  误差 0.0087 m  倾角 0.0°  OK
+[cam] 本集 1426 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收49440 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收49440 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0033.hdf5 写入 1426 帧  success=True
+[########----------------] 成功 34/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 17m46s  剩余约 34m30s
+
+[第 35 次尝试] [########----------------] 成功 34/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 17m46s  剩余约 34m30s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.382]  误差 0.0125 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.382]  误差 0.0126 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.385]  误差 0.0129 m  倾角 0.0°  OK
+[cam] 本集 1434 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收50874 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收50874 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0034.hdf5 写入 1434 帧  success=True
+[########----------------] 成功 35/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 18m17s  剩余约 33m58s
+
+[第 36 次尝试] [########----------------] 成功 35/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 18m17s  剩余约 33m58s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.383]  误差 0.0119 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.046 m（方向 70°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.377]  误差 0.0107 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.386]  误差 0.0144 m  倾角 0.0°  OK
+[cam] 本集 1501 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收52375 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收52375 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0035.hdf5 写入 1501 帧  success=True
+[#########---------------] 成功 36/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 18m49s  剩余约 33m28s
+
+[第 37 次尝试] [#########---------------] 成功 36/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 18m49s  剩余约 33m28s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.376]  误差 0.0079 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.383]  误差 0.0140 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.936 -27.381]  误差 0.0093 m  倾角 0.0°  OK
+[cam] 本集 1394 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收53769 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收53769 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0036.hdf5 写入 1394 帧  success=True
+[#########---------------] 成功 37/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 19m19s  剩余约 32m55s
+
+[第 38 次尝试] [#########---------------] 成功 37/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 19m19s  剩余约 32m55s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.376]  误差 0.0098 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02 -27.38]  误差 0.0121 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.937 -27.386]  误差 0.0138 m  倾角 0.0°  OK
+[cam] 本集 1401 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收55170 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收55170 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0037.hdf5 写入 1401 帧  success=True
+[#########---------------] 成功 38/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 19m50s  剩余约 32m21s
+
+[第 39 次尝试] [#########---------------] 成功 38/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 19m50s  剩余约 32m21s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.381]  误差 0.0111 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.384]  误差 0.0124 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.383]  误差 0.0134 m  倾角 0.0°  OK
+[cam] 本集 1436 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收56606 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收56606 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0038.hdf5 写入 1436 帧  success=True
+[#########---------------] 成功 39/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 20m21s  剩余约 31m50s
+
+[第 40 次尝试] [#########---------------] 成功 39/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 20m21s  剩余约 31m50s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.114 -27.389]  误差 0.0175 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.385]  误差 0.0150 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.383]  误差 0.0136 m  倾角 0.0°  OK
+[cam] 本集 1410 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收58016 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收58016 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0039.hdf5 写入 1410 帧  success=True
+[##########--------------] 成功 40/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 20m51s  剩余约 31m17s
+
+[第 41 次尝试] [##########--------------] 成功 40/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 20m51s  剩余约 31m17s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.38 ]  误差 0.0128 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.038 m（方向 74°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.379]  误差 0.0107 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.386]  误差 0.0143 m  倾角 0.0°  OK
+[cam] 本集 1500 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收59516 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收59516 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0040.hdf5 写入 1500 帧  success=True
+[##########--------------] 成功 41/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 21m23s  剩余约 30m47s
+
+[第 42 次尝试] [##########--------------] 成功 41/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 21m23s  剩余约 30m47s
+  [noise] red 注入抓偏 0.041 m（方向 199°）
+  [rescue] red 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.383]  误差 0.0130 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.385]  误差 0.0158 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.389]  误差 0.0176 m  倾角 0.0°  OK
+[cam] 本集 1523 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收61039 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收61039 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0041.hdf5 写入 1523 帧  success=True
+[##########--------------] 成功 42/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 21m56s  剩余约 30m18s
+
+[第 43 次尝试] [##########--------------] 成功 42/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 21m56s  剩余约 30m18s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.105 -27.382]  误差 0.0165 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.381]  误差 0.0100 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.384]  误差 0.0146 m  倾角 0.0°  OK
+[cam] 本集 1428 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收62467 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收62467 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0042.hdf5 写入 1428 帧  success=True
+[##########--------------] 成功 43/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 22m27s  剩余约 29m46s
+
+[第 44 次尝试] [##########--------------] 成功 43/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 22m27s  剩余约 29m46s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.38 ]  误差 0.0119 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.016 -27.382]  误差 0.0164 m  倾角 0.0°  OK
+  [noise] green 注入抓偏 0.042 m（方向 196°）
+  [rescue] green 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.388]  误差 0.0166 m  倾角 0.0°  OK
+[cam] 本集 1491 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收63958 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收63958 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0043.hdf5 写入 1491 帧  success=True
+[###########-------------] 成功 44/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 22m59s  剩余约 29m15s
+
+[第 45 次尝试] [###########-------------] 成功 44/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 22m59s  剩余约 29m15s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11 -27.38]  误差 0.0112 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.050 m（方向 298°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.016 -27.38 ]  误差 0.0152 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.386]  误差 0.0151 m  倾角 0.0°  OK
+[cam] 本集 1553 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收65511 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收65511 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0044.hdf5 写入 1553 帧  success=True
+[###########-------------] 成功 45/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 23m33s  剩余约 28m47s
+
+[第 46 次尝试] [###########-------------] 成功 45/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 23m33s  剩余约 28m47s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.378]  误差 0.0090 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.042 m（方向 99°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.024 -27.38 ]  误差 0.0087 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.386]  误差 0.0140 m  倾角 0.0°  OK
+[cam] 本集 1504 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收67015 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收67015 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0045.hdf5 写入 1504 帧  success=True
+[###########-------------] 成功 46/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 24m05s  剩余约 28m17s
+
+[第 47 次尝试] [###########-------------] 成功 46/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 24m05s  剩余约 28m17s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.382]  误差 0.0120 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.014 -27.376]  误差 0.0155 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.385]  误差 0.0140 m  倾角 0.0°  OK
+[cam] 本集 1400 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收68415 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收68415 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0046.hdf5 写入 1400 帧  success=True
+[###########-------------] 成功 47/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 24m35s  剩余约 27m44s
+
+[第 48 次尝试] [###########-------------] 成功 47/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 24m35s  剩余约 27m44s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.382]  误差 0.0139 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.38 ]  误差 0.0125 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.378]  误差 0.0105 m  倾角 0.0°  OK
+[cam] 本集 1423 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收69838 过晚丢弃24 本集补帧0; camera_wrist[gripper_camera] 累计收69838 过晚丢弃24 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0047.hdf5 写入 1423 帧  success=True
+[############------------] 成功 48/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 25m06s  剩余约 27m12s
+
+[第 49 次尝试] [############------------] 成功 48/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 25m06s  剩余约 27m12s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.387]  误差 0.0166 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.025 -27.382]  误差 0.0095 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.385]  误差 0.0142 m  倾角 0.0°  OK
+[cam] 本集 1350 帧，hold-last 补帧 125（4.63%）  camera_top[camera_float] 累计收71125 过晚丢弃87 本集补帧63; camera_wrist[gripper_camera] 累计收71126 过晚丢弃86 本集补帧62
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0048.hdf5 写入 1350 帧  success=True
+[############------------] 成功 49/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 25m35s  剩余约 26m38s
+
+[第 50 次尝试] [############------------] 成功 49/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 25m35s  剩余约 26m38s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.378]  误差 0.0115 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.381]  误差 0.0110 m  倾角 0.0°  OK
+  [noise] green 注入抓偏 0.038 m（方向 12°）
+  [rescue] green 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.383]  误差 0.0134 m  倾角 0.0°  OK
+[cam] 本集 1446 帧，hold-last 补帧 247（8.54%）  camera_top[camera_float] 累计收72447 过晚丢弃211 本集补帧124; camera_wrist[gripper_camera] 累计收72449 过晚丢弃209 本集补帧123
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0049.hdf5 写入 1446 帧  success=True
+[############------------] 成功 50/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 26m06s  剩余约 26m06s
+
+[第 51 次尝试] [############------------] 成功 50/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 26m06s  剩余约 26m06s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.377]  误差 0.0075 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.017 -27.383]  误差 0.0164 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.379]  误差 0.0091 m  倾角 0.0°  OK
+[cam] 本集 1362 帧，hold-last 补帧 12（0.44%）  camera_top[camera_float] 累计收73803 过晚丢弃217 本集补帧6; camera_wrist[gripper_camera] 累计收73805 过晚丢弃215 本集补帧6
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0050.hdf5 写入 1362 帧  success=True
+[############------------] 成功 51/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 26m36s  剩余约 25m33s
+
+[第 52 次尝试] [############------------] 成功 51/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 26m36s  剩余约 25m33s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.379]  误差 0.0107 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.018 -27.384]  误差 0.0160 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.386]  误差 0.0157 m  倾角 0.0°  OK
+[cam] 本集 1423 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收75226 过晚丢弃217 本集补帧0; camera_wrist[gripper_camera] 累计收75228 过晚丢弃215 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0051.hdf5 写入 1423 帧  success=True
+[############------------] 成功 52/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 27m06s  剩余约 25m01s
+
+[第 53 次尝试] [############------------] 成功 52/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 27m06s  剩余约 25m01s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.379]  误差 0.0112 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.031 m（方向 254°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.385]  误差 0.0133 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.386]  误差 0.0137 m  倾角 0.0°  OK
+[cam] 本集 1690 帧，hold-last 补帧 358（10.59%）  camera_top[camera_float] 累计收76737 过晚丢弃396 本集补帧179; camera_wrist[gripper_camera] 累计收76739 过晚丢弃394 本集补帧179
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0052.hdf5 写入 1690 帧  success=True
+[#############-----------] 成功 53/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 27m43s  剩余约 24m34s
+
+[第 54 次尝试] [#############-----------] 成功 53/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 27m43s  剩余约 24m34s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.385]  误差 0.0131 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.024 -27.386]  误差 0.0138 m  倾角 0.0°  OK
+  [noise] green 注入抓偏 0.048 m（方向 231°）
+  [rescue] green 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.927 -27.387]  误差 0.0186 m  倾角 0.0°  OK
+[cam] 本集 1515 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收78252 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收78254 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0053.hdf5 写入 1515 帧  success=True
+[#############-----------] 成功 54/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 28m15s  剩余约 24m04s
+
+[第 55 次尝试] [#############-----------] 成功 54/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 28m15s  剩余约 24m04s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.103 -27.382]  误差 0.0186 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.383]  误差 0.0132 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.385]  误差 0.0153 m  倾角 0.0°  OK
+[cam] 本集 1376 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收79628 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收79630 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0054.hdf5 写入 1376 帧  success=True
+[#############-----------] 成功 55/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 28m45s  剩余约 23m31s
+
+[第 56 次尝试] [#############-----------] 成功 55/100  丢弃 0  成功率 100.0%  均 31.4s/集  已用 28m45s  剩余约 23m31s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.379]  误差 0.0095 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.384]  误差 0.0149 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.384]  误差 0.0133 m  倾角 0.0°  OK
+[cam] 本集 1387 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收81015 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收81017 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0055.hdf5 写入 1387 帧  success=True
+[#############-----------] 成功 56/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 29m15s  剩余约 22m59s
+
+[第 57 次尝试] [#############-----------] 成功 56/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 29m15s  剩余约 22m59s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.108 -27.378]  误差 0.0119 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.385]  误差 0.0147 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.937 -27.385]  误差 0.0120 m  倾角 0.0°  OK
+[cam] 本集 1452 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收82467 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收82469 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0056.hdf5 写入 1452 帧  success=True
+[##############----------] 成功 57/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 29m46s  剩余约 22m27s
+
+[第 58 次尝试] [##############----------] 成功 57/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 29m46s  剩余约 22m27s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.38 ]  误差 0.0121 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.385]  误差 0.0145 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.936 -27.385]  误差 0.0129 m  倾角 0.0°  OK
+[cam] 本集 1426 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收83893 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收83895 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0057.hdf5 写入 1426 帧  success=True
+[##############----------] 成功 58/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 30m17s  剩余约 21m56s
+
+[第 59 次尝试] [##############----------] 成功 58/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 30m17s  剩余约 21m56s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.378]  误差 0.0109 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.385]  误差 0.0153 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.378]  误差 0.0098 m  倾角 0.0°  OK
+[cam] 本集 1380 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收85273 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收85275 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0058.hdf5 写入 1380 帧  success=True
+[##############----------] 成功 59/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 30m47s  剩余约 21m23s
+
+[第 60 次尝试] [##############----------] 成功 59/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 30m47s  剩余约 21m23s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.114 -27.384]  误差 0.0122 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.381]  误差 0.0108 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.381]  误差 0.0120 m  倾角 0.0°  OK
+[cam] 本集 1370 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收86643 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收86645 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0059.hdf5 写入 1370 帧  success=True
+[##############----------] 成功 60/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 31m16s  剩余约 20m51s
+
+[第 61 次尝试] [##############----------] 成功 60/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 31m16s  剩余约 20m51s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.383]  误差 0.0125 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.381]  误差 0.0124 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.386]  误差 0.0142 m  倾角 0.0°  OK
+[cam] 本集 1342 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收87985 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收87987 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0060.hdf5 写入 1342 帧  success=True
+[###############---------] 成功 61/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 31m45s  剩余约 20m18s
+
+[第 62 次尝试] [###############---------] 成功 61/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 31m45s  剩余约 20m18s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.105 -27.383]  误差 0.0178 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.383]  误差 0.0143 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.388]  误差 0.0155 m  倾角 0.0°  OK
+[cam] 本集 1421 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收89406 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收89408 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0061.hdf5 写入 1421 帧  success=True
+[###############---------] 成功 62/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 32m16s  剩余约 19m46s
+
+[第 63 次尝试] [###############---------] 成功 62/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 32m16s  剩余约 19m46s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.385]  误差 0.0142 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.025 -27.385]  误差 0.0131 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.389]  误差 0.0187 m  倾角 0.0°  OK
+[cam] 本集 1508 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收90914 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收90916 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0062.hdf5 写入 1508 帧  success=True
+[###############---------] 成功 63/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 32m48s  剩余约 19m16s
+
+[第 64 次尝试] [###############---------] 成功 63/100  丢弃 0  成功率 100.0%  均 31.3s/集  已用 32m48s  剩余约 19m16s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.378]  误差 0.0106 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.018 -27.387]  误差 0.0180 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.936 -27.386]  误差 0.0136 m  倾角 0.0°  OK
+[cam] 本集 1354 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收92268 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收92270 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0063.hdf5 写入 1354 帧  success=True
+[###############---------] 成功 64/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 33m18s  剩余约 18m43s
+
+[第 65 次尝试] [###############---------] 成功 64/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 33m18s  剩余约 18m43s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.383]  误差 0.0133 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.386]  误差 0.0148 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.386]  误差 0.0139 m  倾角 0.0°  OK
+[cam] 本集 1421 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收93689 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收93691 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0064.hdf5 写入 1421 帧  success=True
+[################--------] 成功 65/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 33m48s  剩余约 18m12s
+
+[第 66 次尝试] [################--------] 成功 65/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 33m48s  剩余约 18m12s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.38 ]  误差 0.0124 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.388]  误差 0.0180 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.382]  误差 0.0117 m  倾角 0.0°  OK
+[cam] 本集 1432 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收95121 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收95123 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0065.hdf5 写入 1432 帧  success=True
+[################--------] 成功 66/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 34m19s  剩余约 17m41s
+
+[第 67 次尝试] [################--------] 成功 66/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 34m19s  剩余约 17m41s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.108 -27.379]  误差 0.0124 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.384]  误差 0.0153 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.388]  误差 0.0173 m  倾角 0.0°  OK
+[cam] 本集 1457 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收96578 过晚丢弃396 本集补帧0; camera_wrist[gripper_camera] 累计收96580 过晚丢弃394 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0066.hdf5 写入 1457 帧  success=True
+[################--------] 成功 67/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 34m51s  剩余约 17m09s
+
+[第 68 次尝试] [################--------] 成功 67/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 34m51s  剩余约 17m09s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.381]  误差 0.0109 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.38 ]  误差 0.0124 m  倾角 0.0°  OK
+  [noise] green 注入抓偏 0.045 m（方向 358°）
+  [rescue] green 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.933 -27.387]  误差 0.0155 m  倾角 0.0°  OK
+[cam] 本集 1545 帧，hold-last 补帧 66（2.14%）  camera_top[camera_float] 累计收98090 过晚丢弃429 本集补帧33; camera_wrist[gripper_camera] 累计收98092 过晚丢弃427 本集补帧33
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0067.hdf5 写入 1545 帧  success=True
+[################--------] 成功 68/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 35m24s  剩余约 16m39s
+
+[第 69 次尝试] [################--------] 成功 68/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 35m24s  剩余约 16m39s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.379]  误差 0.0111 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.386]  误差 0.0158 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.377]  误差 0.0083 m  倾角 0.0°  OK
+[cam] 本集 1412 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收99502 过晚丢弃429 本集补帧0; camera_wrist[gripper_camera] 累计收99504 过晚丢弃427 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0068.hdf5 写入 1412 帧  success=True
+[#################-------] 成功 69/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 35m55s  剩余约 16m08s
+
+[第 70 次尝试] [#################-------] 成功 69/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 35m55s  剩余约 16m08s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.382]  误差 0.0141 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.385]  误差 0.0155 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.387]  误差 0.0161 m  倾角 0.0°  OK
+[cam] 本集 1411 帧，hold-last 补帧 14（0.50%）  camera_top[camera_float] 累计收100906 过晚丢弃436 本集补帧7; camera_wrist[gripper_camera] 累计收100908 过晚丢弃434 本集补帧7
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0069.hdf5 写入 1411 帧  success=True
+[#################-------] 成功 70/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 36m25s  剩余约 15m36s
+
+[第 71 次尝试] [#################-------] 成功 70/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 36m25s  剩余约 15m36s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.114 -27.385]  误差 0.0135 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.015 -27.392]  误差 0.0243 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.384]  误差 0.0145 m  倾角 0.0°  OK
+[cam] 本集 1371 帧，hold-last 补帧 75（2.74%）  camera_top[camera_float] 累计收102239 过晚丢弃474 本集补帧38; camera_wrist[gripper_camera] 累计收102242 过晚丢弃471 本集补帧37
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0070.hdf5 写入 1371 帧  success=True
+[#################-------] 成功 71/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 36m55s  剩余约 15m04s
+
+[第 72 次尝试] [#################-------] 成功 71/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 36m55s  剩余约 15m04s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.377]  误差 0.0099 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.383]  误差 0.0136 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.388]  误差 0.0166 m  倾角 0.0°  OK
+[cam] 本集 1423 帧，hold-last 补帧 83（2.92%）  camera_top[camera_float] 累计收103620 过晚丢弃516 本集补帧42; camera_wrist[gripper_camera] 累计收103624 过晚丢弃512 本集补帧41
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0071.hdf5 写入 1423 帧  success=True
+[#################-------] 成功 72/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 37m25s  剩余约 14m33s
+
+[第 73 次尝试] [#################-------] 成功 72/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 37m25s  剩余约 14m33s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.381]  误差 0.0104 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.386]  误差 0.0147 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.937 -27.388]  误差 0.0157 m  倾角 0.0°  OK
+[cam] 本集 1466 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收105086 过晚丢弃516 本集补帧0; camera_wrist[gripper_camera] 累计收105090 过晚丢弃512 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0072.hdf5 写入 1466 帧  success=True
+[##################------] 成功 73/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 37m57s  剩余约 14m02s
+
+[第 74 次尝试] [##################------] 成功 73/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 37m57s  剩余约 14m02s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.109 -27.383]  误差 0.0143 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.385]  误差 0.0136 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.387]  误差 0.0146 m  倾角 0.0°  OK
+[cam] 本集 1388 帧，hold-last 补帧 161（5.80%）  camera_top[camera_float] 累计收106393 过晚丢弃597 本集补帧81; camera_wrist[gripper_camera] 累计收106398 过晚丢弃592 本集补帧80
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0073.hdf5 写入 1388 帧  success=True
+[##################------] 成功 74/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 38m27s  剩余约 13m30s
+
+[第 75 次尝试] [##################------] 成功 74/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 38m27s  剩余约 13m30s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.384]  误差 0.0132 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.384]  误差 0.0143 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.383]  误差 0.0138 m  倾角 0.0°  OK
+[cam] 本集 1426 帧，hold-last 补帧 257（9.01%）  camera_top[camera_float] 累计收107688 过晚丢弃728 本集补帧131; camera_wrist[gripper_camera] 累计收107698 过晚丢弃718 本集补帧126
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0074.hdf5 写入 1426 帧  success=True
+[##################------] 成功 75/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 38m58s  剩余约 12m59s
+
+[第 76 次尝试] [##################------] 成功 75/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 38m58s  剩余约 12m59s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.378]  误差 0.0089 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.385]  误差 0.0145 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.386]  误差 0.0165 m  倾角 0.0°  OK
+[cam] 本集 1363 帧，hold-last 补帧 216（7.92%）  camera_top[camera_float] 累计收108944 过晚丢弃835 本集补帧107; camera_wrist[gripper_camera] 累计收108952 过晚丢弃827 本集补帧109
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0075.hdf5 写入 1363 帧  success=True
+[##################------] 成功 76/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 39m27s  剩余约 12m27s
+
+[第 77 次尝试] [##################------] 成功 76/100  丢弃 0  成功率 100.0%  均 31.2s/集  已用 39m27s  剩余约 12m27s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.379]  误差 0.0095 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.384]  误差 0.0141 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.377]  误差 0.0095 m  倾角 0.0°  OK
+[cam] 本集 1400 帧，hold-last 补帧 237（8.46%）  camera_top[camera_float] 累计收110225 过晚丢弃954 本集补帧119; camera_wrist[gripper_camera] 累计收110234 过晚丢弃945 本集补帧118
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0076.hdf5 写入 1400 帧  success=True
+[##################------] 成功 77/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 39m57s  剩余约 11m56s
+
+[第 78 次尝试] [##################------] 成功 77/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 39m57s  剩余约 11m56s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.382]  误差 0.0114 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.387]  误差 0.0167 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.382]  误差 0.0132 m  倾角 0.0°  OK
+[cam] 本集 1428 帧，hold-last 补帧 182（6.37%）  camera_top[camera_float] 累计收111562 过晚丢弃1045 本集补帧91; camera_wrist[gripper_camera] 累计收111571 过晚丢弃1036 本集补帧91
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0077.hdf5 写入 1428 帧  success=True
+[###################-----] 成功 78/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 40m28s  剩余约 11m24s
+
+[第 79 次尝试] [###################-----] 成功 78/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 40m28s  剩余约 11m24s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.38 ]  误差 0.0108 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.382]  误差 0.0118 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.377]  误差 0.0069 m  倾角 0.0°  OK
+[cam] 本集 1414 帧，hold-last 补帧 5（0.18%）  camera_top[camera_float] 累计收112974 过晚丢弃1047 本集补帧2; camera_wrist[gripper_camera] 累计收112982 过晚丢弃1039 本集补帧3
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0078.hdf5 写入 1414 帧  success=True
+[###################-----] 成功 79/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 40m58s  剩余约 10m53s
+
+[第 80 次尝试] [###################-----] 成功 79/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 40m58s  剩余约 10m53s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.382]  误差 0.0119 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.383]  误差 0.0124 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.388]  误差 0.0160 m  倾角 0.0°  OK
+[cam] 本集 1378 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收114352 过晚丢弃1047 本集补帧0; camera_wrist[gripper_camera] 累计收114360 过晚丢弃1039 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0079.hdf5 写入 1378 帧  success=True
+[###################-----] 成功 80/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 41m28s  剩余约 10m22s
+
+[第 81 次尝试] [###################-----] 成功 80/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 41m28s  剩余约 10m22s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.107 -27.381]  误差 0.0144 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.384]  误差 0.0146 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.385]  误差 0.0151 m  倾角 0.0°  OK
+[cam] 本集 1360 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收115712 过晚丢弃1047 本集补帧0; camera_wrist[gripper_camera] 累计收115720 过晚丢弃1039 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0080.hdf5 写入 1360 帧  success=True
+[###################-----] 成功 81/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 41m57s  剩余约 9m50s
+
+[第 82 次尝试] [###################-----] 成功 81/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 41m57s  剩余约 9m50s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.386]  误差 0.0160 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.383]  误差 0.0124 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.384]  误差 0.0128 m  倾角 0.0°  OK
+[cam] 本集 1381 帧，hold-last 补帧 14（0.51%）  camera_top[camera_float] 累计收117086 过晚丢弃1054 本集补帧7; camera_wrist[gripper_camera] 累计收117094 过晚丢弃1046 本集补帧7
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0081.hdf5 写入 1381 帧  success=True
+[####################----] 成功 82/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 42m27s  剩余约 9m19s
+
+[第 83 次尝试] [####################----] 成功 82/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 42m27s  剩余约 9m19s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.383]  误差 0.0124 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.015 -27.384]  误差 0.0183 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.386]  误差 0.0138 m  倾角 0.0°  OK
+[cam] 本集 1444 帧，hold-last 补帧 89（3.08%）  camera_top[camera_float] 累计收118486 过晚丢弃1098 本集补帧44; camera_wrist[gripper_camera] 累计收118493 过晚丢弃1091 本集补帧45
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0082.hdf5 写入 1444 帧  success=True
+[####################----] 成功 83/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 42m58s  剩余约 8m48s
+
+[第 84 次尝试] [####################----] 成功 83/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 42m58s  剩余约 8m48s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.114 -27.378]  误差 0.0071 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.384]  误差 0.0145 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.383]  误差 0.0134 m  倾角 0.0°  OK
+[cam] 本集 1416 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收119902 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收119909 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0083.hdf5 写入 1416 帧  success=True
+[####################----] 成功 84/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 43m29s  剩余约 8m17s
+
+[第 85 次尝试] [####################----] 成功 84/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 43m29s  剩余约 8m17s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.375]  误差 0.0075 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.383]  误差 0.0142 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.928 -27.383]  误差 0.0146 m  倾角 0.0°  OK
+[cam] 本集 1410 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收121312 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收121319 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0084.hdf5 写入 1410 帧  success=True
+[####################----] 成功 85/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 43m59s  剩余约 7m45s
+
+[第 86 次尝试] [####################----] 成功 85/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 43m59s  剩余约 7m45s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.114 -27.373]  误差 0.0055 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.385]  误差 0.0153 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.385]  误差 0.0134 m  倾角 0.0°  OK
+[cam] 本集 1423 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收122735 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收122742 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0085.hdf5 写入 1423 帧  success=True
+[#####################---] 成功 86/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 44m30s  剩余约 7m14s
+
+[第 87 次尝试] [#####################---] 成功 86/100  丢弃 0  成功率 100.0%  均 31.1s/集  已用 44m30s  剩余约 7m14s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.382]  误差 0.0118 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.38 ]  误差 0.0090 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.935 -27.386]  误差 0.0140 m  倾角 0.0°  OK
+[cam] 本集 1404 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收124139 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收124146 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0086.hdf5 写入 1404 帧  success=True
+[#####################---] 成功 87/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 45m00s  剩余约 6m43s
+
+[第 88 次尝试] [#####################---] 成功 87/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 45m00s  剩余约 6m43s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.383]  误差 0.0139 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.384]  误差 0.0150 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.388]  误差 0.0167 m  倾角 0.0°  OK
+[cam] 本集 1418 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收125557 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收125564 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0087.hdf5 写入 1418 帧  success=True
+[#####################---] 成功 88/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 45m31s  剩余约 6m12s
+
+[第 89 次尝试] [#####################---] 成功 88/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 45m31s  剩余约 6m12s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.106 -27.383]  误差 0.0163 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.383]  误差 0.0121 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.387]  误差 0.0165 m  倾角 0.0°  OK
+[cam] 本集 1443 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收127000 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收127007 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0088.hdf5 写入 1443 帧  success=True
+[#####################---] 成功 89/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 46m02s  剩余约 5m41s
+
+[第 90 次尝试] [#####################---] 成功 89/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 46m02s  剩余约 5m41s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.113 -27.379]  误差 0.0084 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.385]  误差 0.0149 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.384]  误差 0.0132 m  倾角 0.0°  OK
+[cam] 本集 1364 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收128364 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收128371 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0089.hdf5 写入 1364 帧  success=True
+[######################--] 成功 90/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 46m32s  剩余约 5m10s
+
+[第 91 次尝试] [######################--] 成功 90/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 46m32s  剩余约 5m10s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.111 -27.384]  误差 0.0140 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.383]  误差 0.0119 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.388]  误差 0.0173 m  倾角 0.0°  OK
+[cam] 本集 1403 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收129767 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收129774 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0090.hdf5 写入 1403 帧  success=True
+[######################--] 成功 91/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 47m02s  剩余约 4m39s
+
+[第 92 次尝试] [######################--] 成功 91/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 47m02s  剩余约 4m39s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.379]  误差 0.0096 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.385]  误差 0.0151 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.383]  误差 0.0136 m  倾角 0.0°  OK
+[cam] 本集 1343 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收131110 过晚丢弃1098 本集补帧0; camera_wrist[gripper_camera] 累计收131117 过晚丢弃1091 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0091.hdf5 写入 1343 帧  success=True
+[######################--] 成功 92/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 47m31s  剩余约 4m07s
+
+[第 93 次尝试] [######################--] 成功 92/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 47m31s  剩余约 4m07s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.377]  误差 0.0079 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.022 -27.382]  误差 0.0117 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.385]  误差 0.0152 m  倾角 0.0°  OK
+[cam] 本集 1368 帧，hold-last 补帧 56（2.05%）  camera_top[camera_float] 累计收132450 过晚丢弃1126 本集补帧28; camera_wrist[gripper_camera] 累计收132457 过晚丢弃1119 本集补帧28
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0092.hdf5 写入 1368 帧  success=True
+[######################--] 成功 93/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 48m00s  剩余约 3m36s
+
+[第 94 次尝试] [######################--] 成功 93/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 48m00s  剩余约 3m36s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.107 -27.381]  误差 0.0150 m  倾角 0.0°  OK
+  [noise] yellow 注入抓偏 0.035 m（方向 312°）
+  [rescue] yellow 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.023 -27.383]  误差 0.0118 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.385]  误差 0.0148 m  倾角 0.0°  OK
+[cam] 本集 1521 帧，hold-last 补帧 531（17.46%）  camera_top[camera_float] 累计收133703 过晚丢弃1394 本集补帧268; camera_wrist[gripper_camera] 累计收133715 过晚丢弃1382 本集补帧263
+[cam] !! hold-last 补帧偏高：查相机采集分辨率（CameraCaptureConfig Width/Height）是否已降到 320x240，以及 render_fps 是否=50
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0093.hdf5 写入 1521 帧  success=True
+[#######################-] 成功 94/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 48m33s  剩余约 3m05s
+
+[第 95 次尝试] [#######################-] 成功 94/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 48m33s  剩余约 3m05s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11 -27.38]  误差 0.0113 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.386]  误差 0.0161 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.385]  误差 0.0135 m  倾角 0.0°  OK
+[cam] 本集 1403 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收135106 过晚丢弃1394 本集补帧0; camera_wrist[gripper_camera] 累计收135118 过晚丢弃1382 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0094.hdf5 写入 1403 帧  success=True
+[#######################-] 成功 95/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 49m03s  剩余约 2m34s
+
+[第 96 次尝试] [#######################-] 成功 95/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 49m03s  剩余约 2m34s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.11  -27.386]  误差 0.0160 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.386]  误差 0.0162 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.932 -27.385]  误差 0.0141 m  倾角 0.0°  OK
+[cam] 本集 1419 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收136525 过晚丢弃1394 本集补帧0; camera_wrist[gripper_camera] 累计收136537 过晚丢弃1382 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0095.hdf5 写入 1419 帧  success=True
+[#######################-] 成功 96/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 49m34s  剩余约 2m03s
+
+[第 97 次尝试] [#######################-] 成功 96/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 49m34s  剩余约 2m03s
+  [noise] red 注入抓偏 0.043 m（方向 65°）
+  [rescue] red 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.386]  误差 0.0151 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.019 -27.386]  误差 0.0167 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.386]  误差 0.0139 m  倾角 0.0°  OK
+[cam] 本集 1534 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收138059 过晚丢弃1394 本集补帧0; camera_wrist[gripper_camera] 累计收138071 过晚丢弃1382 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0096.hdf5 写入 1534 帧  success=True
+[#######################-] 成功 97/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 50m07s  剩余约 1m33s
+
+[第 98 次尝试] [#######################-] 成功 97/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 50m07s  剩余约 1m33s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.108 -27.381]  误差 0.0138 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.021 -27.386]  误差 0.0158 m  倾角 0.0°  OK
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.93  -27.408]  误差 0.0363 m  倾角 0.0°  OK
+[cam] 本集 1450 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收139509 过晚丢弃1394 本集补帧0; camera_wrist[gripper_camera] 累计收139521 过晚丢弃1382 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0097.hdf5 写入 1450 帧  success=True
+[########################] 成功 98/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 50m38s  剩余约 1m02s
+
+[第 99 次尝试] [########################] 成功 98/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 50m38s  剩余约 1m02s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.112 -27.376]  误差 0.0078 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.384]  误差 0.0149 m  倾角 0.0°  OK
+  [noise] green 注入抓偏 0.049 m（方向 194°）
+  [rescue] green 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.931 -27.382]  误差 0.0122 m  倾角 0.0°  OK
+[cam] 本集 1520 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收141029 过晚丢弃1394 本集补帧0; camera_wrist[gripper_camera] 累计收141041 过晚丢弃1382 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0098.hdf5 写入 1520 帧  success=True
+[########################] 成功 99/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 51m11s  剩余约 0m31s
+
+[第 100 次尝试] [########################] 成功 99/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 51m11s  剩余约 0m31s
+  放置 red    目标 [ -5.119 -27.373]  实际 [ -5.105 -27.38 ]  误差 0.0154 m  倾角 0.0°  OK
+  放置 yellow 目标 [ -5.029 -27.373]  实际 [ -5.02  -27.384]  误差 0.0142 m  倾角 0.0°  OK
+  [noise] green 注入抓偏 0.036 m（方向 339°）
+  [rescue] green 检测到空抓（累计 1 次）-> 原地抬升/张爪/重读位姿/二次抓取
+  放置 green  目标 [ -4.939 -27.373]  实际 [ -4.934 -27.381]  误差 0.0094 m  倾角 0.0°  OK
+[cam] 本集 1484 帧，hold-last 补帧 0（0.00%）  camera_top[camera_float] 累计收142513 过晚丢弃1394 本集补帧0; camera_wrist[gripper_camera] 累计收142525 过晚丢弃1382 本集补帧0
+[episode] /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep0099.hdf5 写入 1484 帧  success=True
+[########################] 成功 100/100  丢弃 0  成功率 100.0%  均 31.0s/集  已用 51m43s  剩余约 0m00s
+[cam] 全程 camera_top[camera_float] 累计收142513 过晚丢弃1394 本集补帧0; camera_wrist[gripper_camera] 累计收142525 过晚丢弃1382 本集补帧0
+完成：成功 100/100（尝试 100 次，丢弃 0），用时 51m45s，数据 -> /home/user/orca_data/dataset_v2_no_alias/hdf5/pick_ep*.hdf5
